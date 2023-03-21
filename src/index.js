@@ -73,21 +73,20 @@ Object.values(siteContent["ana-içerik"]).forEach(
   (value, index) => (contentSelector[index].textContent = value)
 );
 
-document.querySelector(".contact h4").textContent = Object.values(
-  siteContent["iletisim"]
-)[0];
+const contactSelector = document.querySelectorAll(".contact h4, .contact p");
+const iletisimBilgisi = Object.values(siteContent["iletisim"]);
 
-const contactSelector = document.querySelectorAll(".contact p");
-
-Object.values(siteContent["iletisim"]).forEach(
-  (value, index) => (contactSelector[index].textContent = value)
+contactSelector.forEach(
+  (tag, index) => (tag.textContent = iletisimBilgisi[index])
 );
 
-const footer = documents.querySelectorAll("footer a");
+const footerA = document.querySelector("footer a");
 
-footer.setAttribute("class", "bold");
+footerA.classList.add("bold");
+footerA.textContent = "Copyright Bir Şirket Sitesi 2022";
 
-footer.textContent = "Copyright Bir Şirket Sitesi 2022";
+const navA = document.querySelectorAll(" header nav a");
+navA.forEach((x) => x.setAttribute("class", "italic"));
 
 /*
 const logoImg = document.getElementById("logo-img");
